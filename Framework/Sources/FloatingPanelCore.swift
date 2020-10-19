@@ -761,8 +761,12 @@ class FloatingPanelCore: NSObject, UIGestureRecognizerDelegate {
 
     private func tearDownActiveInteraction() {
         // Cancel the pan gesture so that panningEnd(with:velocity:) is called
-        panGestureRecognizer.isEnabled = false
-        panGestureRecognizer.isEnabled = true
+        if isRemovalInteractionEnabled {
+            panGestureRecognizer.isEnabled = false
+            panGestureRecognizer.isEnabled = true
+        } else {
+            panGestureRecognizer.isEnabled = false
+        }
     }
 
     private func startAnimation(to targetPosition: FloatingPanelPosition, at distance: CGFloat, with velocity: CGPoint) {
