@@ -39,6 +39,7 @@ class FloatingPanelCore: NSObject, UIGestureRecognizerDelegate {
 
     let panGestureRecognizer: FloatingPanelPanGestureRecognizer
     var isRemovalInteractionEnabled: Bool = false
+    var isScrollEnabled: Bool = true
 
     fileprivate var animator: UIViewPropertyAnimator?
 
@@ -761,7 +762,7 @@ class FloatingPanelCore: NSObject, UIGestureRecognizerDelegate {
 
     private func tearDownActiveInteraction() {
         // Cancel the pan gesture so that panningEnd(with:velocity:) is called
-        if isRemovalInteractionEnabled {
+        if isScrollEnabled {
             panGestureRecognizer.isEnabled = false
             panGestureRecognizer.isEnabled = true
         } else {

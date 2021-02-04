@@ -193,6 +193,12 @@ open class FloatingPanelController: UIViewController {
         set { floatingPanel.isRemovalInteractionEnabled = newValue }
         get { return floatingPanel.isRemovalInteractionEnabled }
     }
+    
+    /// A Boolean value that determines whether the scroll is enabled.
+    public var isScrollEnabled: Bool {
+        set { floatingPanel.isScrollEnabled = newValue }
+        get { return floatingPanel.isScrollEnabled }
+    }
 
     /// The view controller responsible for the content portion of the floating panel.
     public var contentViewController: UIViewController? {
